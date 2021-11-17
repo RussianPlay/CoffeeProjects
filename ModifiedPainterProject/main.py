@@ -9,8 +9,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         can = Canvas()
-        self.pushButton.clicked.connect(c.paint)
-        self.gridLayout.addWidget(c)
+        self.pushButton.clicked.connect(can.paint)
+        self.gridLayout.addWidget(can)
 
 
 class Canvas(QWidget):
@@ -32,8 +32,9 @@ class Canvas(QWidget):
         self.update()
 
     def drawCircle(self):
-        self.qp.setPen(QColor(255, 255, 0))
-        self.qp.setBrush(QColor(255, 255, 0))
+        r, g, b = randint(0, 255), randint(0, 255), randint(0, 255)
+        self.qp.setPen(QColor(r, g, b))
+        self.qp.setBrush(QColor(r, g, b))
         x1 = randint(0, self.width() // 1.5)
         y1 = randint(0, self.width() // 1.5)
         x2 = randint(0, self.height() // 1.5)
