@@ -9,9 +9,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("p_design.ui", self)
-        can = Canvas()
-        self.pushButton.clicked.connect(can.paint)
-        self.gridLayout.addWidget(can)
+        canv = Canvas()
+        self.pushButton.clicked.connect(canv.paint)
+        self.gridLayout.addWidget(canv)
 
 
 class Canvas(QWidget):
