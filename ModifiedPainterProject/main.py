@@ -8,7 +8,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        c = Canvas()
+        can = Canvas()
         self.pushButton.clicked.connect(c.paint)
         self.gridLayout.addWidget(c)
 
