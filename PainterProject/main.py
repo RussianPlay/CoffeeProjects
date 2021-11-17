@@ -28,7 +28,7 @@ class Painter(QMainWindow):
         self.qp.setPen(QColor(255, 255, 0))
         self.qp.setBrush(QColor(255, 255, 0))
         x1 = randint(0, self.width() // 1.5)
-        y1 = randint(0, self.width() // 1.5)
+        x2 = randint(0, self.width() // 1.5)
         x2 = randint(0, self.height() // 1.5)
         y2 = randint(0, self.height() // 1.5)
         self.qp.drawEllipse(x1, x2, y2, y2)
