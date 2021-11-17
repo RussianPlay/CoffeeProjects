@@ -1,15 +1,22 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
 from PyQt5.QtGui import QColor, QPainter
 from PyQt5 import uic
 from random import randint
 
 
-class Painter(QMainWindow):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("p_design.ui", self)
-        self.pushButton.clicked.connect(self.paint)
+        c = Canvas()
+        self.pushButton.clicked.connect(c.paint)
+        self.gridLayout.addWidget(c)
+
+class Canvas(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.painter = QPainter()
         self.do_paint = False
 
     def paintEvent(self, event):
@@ -36,6 +43,6 @@ class Painter(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    p = Painter()
+    p = MainWindow()
     p.show()
     sys.exit(app.exec())
