@@ -13,6 +13,7 @@ class MainWindow(QMainWindow):
         self.pushButton.clicked.connect(c.paint)
         self.gridLayout.addWidget(c)
 
+
 class Canvas(QWidget):
     def __init__(self):
         super().__init__()
