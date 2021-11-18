@@ -7,7 +7,7 @@ import sqlite3
 class Espresso(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("coffee_display_design.ui", self)
+        uic.loadUi("esp_coffee_display_design.ui", self)
         self.con = sqlite3.connect("coffee.db")
         self.cur = self.con.cursor()
         self.show_coffee_sortes()

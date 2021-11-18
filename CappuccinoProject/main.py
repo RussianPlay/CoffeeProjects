@@ -26,7 +26,6 @@ class Cappuccino(QMainWindow):
                 self.tableWidget.setItem(i, j, QTableWidgetItem(str(elem)))
 
     def change_add_values(self, row, is_change=None):
-        print(row)
         if is_change and row[0]:
             self.cur.execute(f"""UPDATE data SET 
                                     variety_name='{row[1]}', roasting_degree='{row[2]}', type='{row[3]}', 
@@ -68,6 +67,7 @@ class ChangeForm(QWidget):
 
     def add_element(self):
         self.error_label.clear()
+        self.cur = self.con.cursor()
         current_id = self.id.text() if self.id.text() else "0"
         self.row = [self.id.text(), self.var_name.text(), self.r_deg.text(),
                     self.type.text(), self.t_desc.text(), self.price.text(), self.pack_vol.text()]
@@ -77,6 +77,7 @@ class ChangeForm(QWidget):
             self.error_label.setText("ОШИБКА. Такой id уже существует")
 
     def change_element(self):
+        self.cur = self.con.cursor()
         self.error_label.clear()
         self.row = [self.id.text(), self.var_name.text(), self.r_deg.text(),
                     self.type.text(), self.t_desc.text(), self.price.text(), self.pack_vol.text()]
