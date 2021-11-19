@@ -8,7 +8,7 @@ class Cappuccino(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.con = sqlite3.connect(r"C:\Users\ahmad\PycharmProjects\git_project1\LatteMacchiatoProject\data\coffee.db")
+        self.con = sqlite3.connect("../data/coffee.db")
         self.cur = self.con.cursor()
         self.SecondaryForm = None
         self.pushButton.clicked.connect(self.open_second_form)
@@ -58,7 +58,7 @@ class ChangeForm(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.con = sqlite3.connect(r"C:\Users\ahmad\PycharmProjects\git_project1\LatteMacchiatoProject\data\coffee.db")
+        self.con = sqlite3.connect("../data/coffee.db")
         self.cur = self.con.cursor()
         self.id_values = list(map(lambda x: x[0], self.cur.execute("SELECT data.id FROM data").fetchall()))
         self.row = None
